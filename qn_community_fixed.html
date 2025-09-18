@@ -1,0 +1,2377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <title>QN交流社区 - 游戏交流平台</title>
+    <link rel="stylesheet" href="https://autoglm-api.zhipuai.cn/ppt-proxy/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* 颜色系统 */
+            --primary-color: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --secondary-color: #8b5cf6;
+            --secondary-light: #a78bfa;
+            --secondary-dark: #7c3aed;
+            --accent-color: #ec4899;
+            --accent-light: #f472b6;
+            --accent-dark: #db2777;
+            --neutral-color: #f3f4f6;
+            --neutral-light: #f9fafb;
+            --neutral-dark: #e5e7eb;
+            --text-color: #1f2937;
+            --text-light: #4b5563;
+            --text-lighter: #6b7280;
+            --text-lightest: #9ca3af;
+            --white: #ffffff;
+            --black: #111827;
+            
+            /* 阴影系统 */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            /* 过渡效果 */
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            
+            /* 布局系统 */
+            --container-max-width: 1200px;
+            --header-height: 70px;
+            --mobile-header-height: 60px;
+            --border-radius: 10px;
+            --border-radius-sm: 6px;
+            --border-radius-lg: 16px;
+            
+            /* 间距系统 */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 0.75rem;
+            --spacing: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --spacing-3xl: 6rem;
+            
+        /* 字体系统 */
+        --font-size-xs: 0.75rem;
+        --font-size-sm: 0.875rem;
+        --font-size: 1rem;
+        --font-size-md: 1.125rem;
+        --font-size-lg: 1.25rem;
+        --font-size-xl: 1.5rem;
+        --font-size-2xl: 1.875rem;
+        --font-size-3xl: 2.25rem;
+        --font-size-4xl: 3rem;
+        
+        /* 字体权重系统 */
+        --font-weight-light: 300;
+        --font-weight-normal: 400;
+        --font-weight-medium: 500;
+        --font-weight-semibold: 600;
+        --font-weight-bold: 700;
+        --font-weight-extrabold: 800;
+            
+            /* 行高系统 */
+            --line-height-tight: 1.25;
+            --line-height-snug: 1.375;
+            --line-height-normal: 1.5;
+            --line-height-relaxed: 1.625;
+            --line-height-loose: 2;
+            
+            /* 背景叠加 */
+            --bg-overlay: rgba(15, 23, 42, 0.85);
+        }
+
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+            color: var(--text-color);
+            line-height: var(--line-height-normal);
+            font-weight: var(--font-weight-normal);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        /* 背景图片样式 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://autoglm-agent.aminer.cn/0d57ca01-bd8d-4eb0-954e-73bfe9bf0308.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -2;
+            filter: brightness(0.7);
+            transition: filter var(--transition-slow) ease;
+        }
+
+        /* 背景叠加层 */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.85));
+            z-index: -1;
+            transition: opacity var(--transition-slow) ease;
+        }
+
+        /* 容器样式 */
+        .container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        /* 全局溢出保护 */
+        .overflow-protected {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 100%;
+        }
+
+        .overflow-protected-wrap {
+            overflow: hidden;
+            word-wrap: break-word;
+            word-break: break-word;
+            max-width: 100%;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.95), rgba(139, 92, 246, 0.95));
+            color: var(--white);
+            height: var(--header-height);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all var(--transition-normal) ease;
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 100vw;
+            overflow: hidden;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 0 var(--spacing-md);
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .logo {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            transition: transform var(--transition-normal) ease;
+            letter-spacing: -0.025em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            margin-right: var(--spacing-sm);
+            font-size: var(--font-size-2xl);
+            flex-shrink: 0;
+        }
+
+        .logo span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: var(--spacing-md);
+            white-space: nowrap;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-normal) ease;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            position: relative;
+            font-size: var(--font-size);
+            display: inline-block;
+            max-width: 120px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--white);
+            transform: translateX(-50%);
+            transition: width var(--transition-normal) ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 80%;
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .search-box {
+            position: relative;
+            margin-right: var(--spacing);
+            flex-shrink: 0;
+        }
+
+        .search-box input {
+            padding: var(--spacing-sm) 2.5rem var(--spacing-sm) var(--spacing);
+            border-radius: 20px;
+            border: none;
+            width: 200px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            transition: all var(--transition-normal) ease;
+            font-size: var(--font-size-sm);
+            max-width: 100%;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.3);
+            width: 250px;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: var(--spacing-sm);
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: transform var(--transition-normal) ease;
+            max-width: 150px;
+            overflow: hidden;
+        }
+
+        .user-profile:hover {
+            transform: scale(1.05);
+        }
+
+        .user-profile img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: var(--spacing-xs);
+            border: 2px solid var(--white);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .user-profile span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 100px;
+        }
+
+        /* 移动端菜单按钮 */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: var(--font-size-xl);
+            cursor: pointer;
+            padding: var(--spacing-xs);
+            flex-shrink: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            padding: var(--spacing-xl) 0;
+            margin-bottom: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing-lg);
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+            overflow: hidden;
+        }
+
+        .hero-text h1 {
+            font-size: var(--font-size-4xl);
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease;
+            font-weight: var(--font-weight-extrabold);
+            line-height: var(--line-height-tight);
+            letter-spacing: -0.025em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-text p {
+            font-size: var(--font-size-md);
+            color: var(--text-lighter);
+            margin-bottom: var(--spacing-md);
+            animation: fadeInUp 0.8s ease 0.2s;
+            animation-fill-mode: both;
+            line-height: var(--line-height-relaxed);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius-sm);
+            text-decoration: none;
+            font-weight: var(--font-weight-semibold);
+            transition: all var(--transition-normal) ease;
+            cursor: pointer;
+            border: none;
+            font-size: var(--font-size);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-align: center;
+            white-space: nowrap;
+            max-width: 100%;
+            letter-spacing: 0.025em;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-100%);
+            transition: transform var(--transition-normal) ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            transform: translateX(0);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            box-shadow: var(--shadow);
+            animation: fadeInUp 0.8s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            margin-left: var(--spacing);
+            animation: fadeInUp 0.8s ease 0.6s;
+            animation-fill-mode: both;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 500px;
+            text-align: center;
+            animation: fadeIn 1s ease 0.8s;
+            animation-fill-mode: both;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            transition: transform var(--transition-normal) ease;
+            object-fit: cover;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Section Styles */
+        section {
+            padding: var(--spacing-xl) 0;
+            margin-bottom: var(--spacing-xl);
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(5px);
+            transition: transform var(--transition-normal) ease, box-shadow var(--transition-normal) ease;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        section:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--neutral-dark);
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .section-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--text-color);
+            position: relative;
+            padding-bottom: var(--spacing-xs);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 70%;
+            letter-spacing: -0.01em;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+        }
+
+        .section-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: all var(--transition-normal) ease;
+            font-size: var(--font-size);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .section-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .section-link i {
+            margin-left: var(--spacing-xs);
+            transition: transform var(--transition-normal) ease;
+        }
+
+        .section-link:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: all var(--transition-normal) ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.7) 100%);
+            opacity: 0;
+            transition: opacity var(--transition-normal) ease;
+        }
+
+        .card:hover .card-image::after {
+            opacity: 1;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: var(--spacing-lg);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .card-title {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-color);
+            transition: color var(--transition-normal) ease;
+            line-height: var(--line-height-snug);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            letter-spacing: -0.01em;
+        }
+
+        .card:hover .card-title {
+            color: var(--primary-color);
+        }
+
+        .card-description {
+            color: var(--text-lighter);
+            margin-bottom: var(--spacing-md);
+            flex-grow: 1;
+            line-height: var(--line-height-relaxed);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            font-size: var(--font-size-sm);
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: var(--font-size-sm);
+            color: var(--text-lightest);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .card-meta .author {
+            display: flex;
+            align-items: center;
+            max-width: 50%;
+            overflow: hidden;
+        }
+
+        .card-meta .author img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: var(--spacing-xs);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .card-meta .author span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .card-meta .stats {
+            display: flex;
+            flex-shrink: 0;
+        }
+
+        .card-meta .stats span {
+            margin-left: var(--spacing);
+            display: flex;
+            align-items: center;
+            transition: color var(--transition-normal) ease;
+            white-space: nowrap;
+        }
+
+        .card-meta .stats span:hover {
+            color: var(--primary-color);
+        }
+
+        .card-meta .stats i {
+            margin-right: var(--spacing-xs);
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-lg);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* Forum Categories */
+        .forum-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: var(--spacing-md);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .category-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all var(--transition-normal) ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transform: translateY(-100%);
+            transition: transform var(--transition-normal) ease;
+        }
+
+        .category-card:hover::before {
+            transform: translateY(0);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .category-icon {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--spacing);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: transform var(--transition-normal) ease;
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.1);
+        }
+
+        .category-title {
+            font-size: var(--font-size-md);
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .category-description {
+            font-size: var(--font-size-sm);
+            color: var(--text-lightest);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        /* User Profile Section */
+        .user-profile-section {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: var(--spacing-md);
+            border: 4px solid var(--primary-color);
+            transition: transform var(--transition-normal) ease;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .profile-info h2 {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--spacing-xs);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .profile-info p {
+            color: var(--text-lighter);
+            margin-bottom: var(--spacing-xs);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .profile-info p i {
+            margin-right: var(--spacing-xs);
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .profile-stats {
+            display: flex;
+            margin-top: var(--spacing);
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .stat-item {
+            margin-right: var(--spacing-lg);
+            text-align: center;
+            transition: transform var(--transition-normal) ease;
+            flex-shrink: 0;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-value {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--text-lightest);
+        }
+
+        .profile-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--neutral-dark);
+            margin-bottom: var(--spacing-md);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .profile-tab {
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-weight: 500;
+            color: var(--text-lightest);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all var(--transition-normal) ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .profile-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .profile-tab:hover {
+            color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn var(--transition-normal) ease;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Post Form */
+        .post-form {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 2px solid var(--neutral-dark);
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size);
+            font-weight: var(--font-weight-normal);
+            transition: all var(--transition-normal) ease;
+            max-width: 100%;
+            box-sizing: border-box;
+            background-color: var(--white);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+            transform: translateY(-1px);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+            max-width: 100%;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(31, 41, 55, 0.95);
+            color: var(--white);
+            padding: var(--spacing-xl) 0 var(--spacing);
+            margin-top: var(--spacing-xl);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .footer-column {
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .footer-column h3 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            padding-bottom: var(--spacing-xs);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-column p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: var(--spacing-sm);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .footer-column ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: all var(--transition-normal) ease;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 100%;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing);
+            margin-top: var(--spacing);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: all var(--transition-normal) ease;
+            flex-shrink: 0;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: var(--font-size-sm);
+            color: #9ca3af;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 加载动画 */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity var(--transition-normal) ease, visibility var(--transition-normal) ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-circle {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--neutral-light);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 通知提示 */
+        .notification {
+            position: fixed;
+            top: var(--spacing);
+            right: var(--spacing);
+            padding: var(--spacing-sm) var(--spacing);
+            background-color: #10b981;
+            color: var(--white);
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
+            transform: translateX(120%);
+            transition: transform var(--transition-normal) ease;
+            max-width: 80%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: var(--spacing);
+            right: var(--spacing);
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal) ease;
+            z-index: 99;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 960px;
+            }
+            
+            .hero-text h1 {
+                font-size: var(--font-size-2xl);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                max-width: 720px;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                gap: var(--spacing-xl);
+            }
+
+            .hero-text {
+                margin-bottom: 0;
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: var(--font-size-3xl);
+                white-space: normal;
+                display: block;
+                -webkit-line-clamp: unset;
+                margin-bottom: var(--spacing-lg);
+            }
+
+            .hero-image {
+                max-width: 100%;
+            }
+            
+            .grid, .grid-2 {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: var(--spacing-md);
+            }
+            
+            .forum-categories {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+            
+            .container {
+                max-width: 540px;
+                padding: 0 var(--spacing-sm);
+            }
+            
+            header {
+                height: var(--mobile-header-height);
+            }
+            
+            .header-container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: var(--mobile-header-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: var(--shadow);
+                padding: var(--spacing) 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-normal) ease;
+                z-index: 99;
+                max-width: 100vw;
+                overflow-y: auto;
+                max-height: calc(100vh - var(--mobile-header-height));
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: var(--spacing-xs) 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                color: var(--text-color);
+                padding: var(--spacing-sm) var(--spacing);
+                display: block;
+                width: 100%;
+                text-align: center;
+                max-width: 100%;
+            }
+            
+            nav ul li a::after {
+                background-color: var(--primary-color);
+            }
+            
+            .user-actions {
+                margin-top: var(--spacing);
+                width: 100%;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .search-box {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: var(--spacing);
+            }
+
+            .search-box input {
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.1);
+                color: var(--text-color);
+            }
+
+            .search-box input::placeholder {
+                color: var(--text-lighter);
+            }
+
+            .search-box i {
+                color: var(--text-lighter);
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-title {
+                max-width: 100%;
+                white-space: normal;
+                display: block;
+                -webkit-line-clamp: unset;
+            }
+
+            .section-link {
+                margin-top: var(--spacing-xs);
+            }
+
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-avatar {
+                margin-right: 0;
+                margin-bottom: var(--spacing);
+            }
+
+            .profile-stats {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .stat-item {
+                margin-right: var(--spacing);
+                margin-bottom: var(--spacing-xs);
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: var(--spacing-xs);
+            }
+            
+            .forum-categories {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            html {
+                font-size: 14px;
+            }
+            
+            .container {
+                padding: 0 var(--spacing-xs);
+            }
+            
+            .logo {
+                font-size: var(--font-size-lg);
+                max-width: 120px;
+            }
+            
+            .hero {
+                padding: var(--spacing-lg) 0;
+            }
+            
+            .hero-text h1 {
+                font-size: var(--font-size-2xl);
+                line-height: var(--line-height-tight);
+            }
+            
+            .grid, .grid-2, .forum-categories {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .card-content {
+                padding: var(--spacing-md);
+            }
+            
+            .card-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .card-meta .stats {
+                margin-top: var(--spacing-xs);
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* 触摸设备优化 */
+        @media (hover: none) {
+            .card:hover, .category-card:hover, .btn:hover, .user-profile:hover, .logo:hover {
+                transform: none;
+            }
+            
+            .card:hover .card-image img {
+                transform: none;
+            }
+            
+            .card:hover .card-title {
+                color: var(--text-color);
+            }
+            
+            .card:hover .card-image::after {
+                opacity: 0;
+            }
+            
+            .category-card:hover::before {
+                transform: translateY(-100%);
+            }
+            
+            .category-card:hover .category-icon {
+                transform: none;
+            }
+            
+            .section-link:hover i {
+                transform: none;
+            }
+            
+            .social-links a:hover {
+                transform: none;
+            }
+            
+            .back-to-top:hover {
+                transform: none;
+            }
+        }
+
+        /* 高对比度模式支持 */
+        @media (prefers-contrast: high) {
+            :root {
+                --text-color: #000;
+                --text-lighter: #333;
+                --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+                --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            }
+            
+            .btn-primary, .btn-secondary {
+                border-width: 2px;
+            }
+            
+            .form-control {
+                border-width: 2px;
+            }
+        }
+
+        /* 减少动画模式支持 */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* 焦点可见性增强 */
+        *:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        .btn:focus,
+        .form-control:focus,
+        .card:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* 跳过链接 */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+            transition: top var(--transition-normal) ease;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 跳过链接 -->
+    <a href="#main" class="skip-link">跳转到主要内容</a>
+
+    <!-- 加载动画 -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>QN交流社区</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#forum">社区论坛</a></li>
+                    <li><a href="#games">游戏推荐</a></li>
+                    <li><a href="#events">热门活动</a></li>
+                    <li><a href="#profile">个人中心</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索游戏或内容..." aria-label="搜索">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="user-profile">
+                    <img src="https://autoglm-agent.aminer.cn/transfer/6cbf1b5caff7f4a5f2e72bc537e4dcbce51d2fc099d596c72e6c5ed1ef9b69a6.jpg" alt="用户头像">
+                    <span>玩家小明</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>欢迎来到QN交流社区</h1>
+                    <p>探索游戏世界，分享游戏体验，结识志同道合的游戏伙伴。在这里，你可以找到最新的游戏资讯，参与热门讨论，展示你的游戏技巧。</p>
+                    <div>
+                        <a href="#forum" class="btn btn-primary">加入社区</a>
+                        <a href="#games" class="btn btn-secondary">探索游戏</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://autoglm-agent.aminer.cn/transfer/da7b0c711575ec2240d1167dde071e62830861fc734d50b607a65c7f40a2c252.jpg" alt="游戏社区">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main" class="container">
+        <!-- Latest News Section -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">最新动态</h2>
+                <a href="#" class="section-link">查看全部 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://autoglm-agent.aminer.cn/transfer/7280328414c74b547a26310137488fe0c056e40bde4cd44cd185cbf074b63369.jpg" alt="游戏新闻">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">年度游戏大奖揭晓</h3>
+                        <p class="card-description">2023年度游戏大奖颁奖典礼圆满落幕，多款热门游戏斩获大奖，一起来看看有哪些游戏上榜吧！</p>
+                        <div class="card-meta">
+                            <div class="author">
+                                <img src="https://autoglm-agent.aminer.cn/transfer/6cbf1b5caff7f4a5f2e72bc537e4dcbce51d2fc099d596c72e6c5ed1ef9b69a6.jpg" alt="作者">
+                                <span>游戏小编</span>
+                            </div>
+                            <div class="stats">
+                                <span><i class="fas fa-eye"></i> 1.2k</span>
+                                <span><i class="fas fa-comment"></i> 86</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://autoglm-agent.aminer.cn/transfer/7280328414c74b547a26310137488fe0c056e40bde4cd44cd185cbf074b63369.jpg" alt="游戏更新">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">热门游戏大更新</h3>
+                        <p class="card-description">多款热门游戏迎来重大更新，新地图、新角色、新玩法，让你体验全新的游戏乐趣！</p>
+                        <div class="card-meta">
+                            <div class="author">
+                                <img src="https://autoglm-agent.aminer.cn/transfer/6cbf1b5caff7f4a5f2e72bc537e4dcbce51d2fc099d596c72e6c5ed1ef9b69a6.jpg" alt="作者">
+                                <span>更新专员</span>
+                            </div>
+                            <div class="stats">
+                                <span><i class="fas fa-eye"></i> 2.5k</span>
+                                <span><i class="fas fa-comment"></i> 142</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://autoglm-agent.aminer.cn/transfer/7280328414c74b547a26310137488fe0c056e40bde4cd44cd185cbf074b63369.jpg" alt="电竞赛事">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">电竞赛事火热进行中</h3>
+                        <p class="card-description">年度电竞赛事火热进行中，顶级战队激烈角逐，精彩赛事不容错过！</p>
+                        <div class="card-meta">
+                            <div class="author">
+                                <img src="https://autoglm-agent.aminer.cn/transfer/6cbf1b5caff7f4a5f2e72bc537e4dcbce51d2fc099d596c72e6c5ed1ef9b69a6.jpg" alt="作者">
+                                <span>赛事播报</span>
+                            </div>
+                            <div class="stats">
+                                <span><i class="fas fa-eye"></i> 3.8k</span>
+                                <span><i class="fas fa-comment"></i> 256</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forum Categories Section -->
+        <section id="forum">
+            <div class="section-header">
+                <h2 class="section-title">社区论坛</h2>
+                <a href="#" class="section-link">进入论坛 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="forum-categories">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="category-title">热门讨论</h3>
+                    <p class="category-description">最新最热门的游戏话题</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="category-title">动作游戏</h3>
+                    <p class="category-description">刺激爽快的动作体验</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h3 class="category-title">策略游戏</h3>
+                    <p class="category-description">烧脑的策略对战</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="category-title">多人在线</h3>
+                    <p class="category-description">与朋友一起游戏</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="category-title">手机游戏</h3>
+                    <p class="category-description">随时随地畅玩游戏</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-vr-cardboard"></i>
+                    </div>
+                    <h3 class="category-title">VR游戏</h3>
+                    <p class="category-description">沉浸式虚拟现实体验</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hot Discussions Section -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">热门讨论</h2>
+                <a href="#" class="section-link">查看更多 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">《赛博朋克2077》DLC评测：往日之影</h3>
+                        <p class="card-description">经过多次更新和修复，《赛博朋克2077》终于推出了备受期待的DLC"往日之影"。这个DLC是否值得购买？让我们一起来评测一下...</p>
+                        <div class="card-meta">
+                            <div class="author">
+                                <img src="https://autoglm-agent.aminer.cn/transfer/6cbf1b5caff7f4a5f2e72bc537e4dcbce51d2fc099d596c72e6c5ed1ef9b69a6.jpg" alt="作者">
+                                <span>资深玩家</span>
+                            </div>
+                            <div class="stats">
+                                <span><i class="fas fa-eye"></i> 5.2k</span>
+                                <span><i class="fas fa-comment"></i> 312</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">《博德之门3》获得年度游戏大奖，实至名归？</h3>
+                        <p class="card-description">在刚刚结束的年度游戏大奖颁奖典礼上，《博德之门3》斩获了包括年度游戏在内的多项大奖。这款游戏是否真的如此出色？让我们来分析一下...</p>
+                        <div class="card-meta">
+                            <div class="author">
+                                <img src="https://autoglm-agent.aminer.cn/transfer/6cbf1b5caff7f4a5f2e72bc537e4dcbce51d2fc099d596c72e6c5ed1ef9b69a6.jpg" alt="作者">
+                                <span>游戏评论家</span>
+                            </div>
+                            <div class="stats">
+                                <span><i class="fas fa-eye"></i> 4.7k</span>
+                                <span><i class="fas fa-comment"></i> 286</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">2024年最值得期待的5款游戏</h3>
+                        <p class="card-description">随着2023年即将结束，我们开始期待2024年将会带来哪些精彩的游戏。以下是我个人认为最值得期待的5款游戏...</p>
+                        <div class="card-meta">
+                            <div class="author">
+                                <img src="https://autoglm-agent.aminer.cn/transfer/6cbf1b5caff7f4a5f2e72bc537e4dcbce51d2fc099d596c72e6c5ed1ef9b69a6.jpg" alt="作者">
+                                <span>游戏前瞻</span>
+                            </div>
+                            <div class="stats">
+                                <span><i class="fas fa-eye"></i> 6.3k</span>
+                                <span><i class="fas fa-comment"></i> 421</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Recommendations Section -->
+        <section id="games">
+            <div class="section-header">
+                <h2 class="section-title">游戏推荐</h2>
+                <a href="#" class="section-link">查看更多 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://autoglm-agent.aminer.cn/transfer/dc9a31318c9546800bcbec186de4f4d9c300a68faf9a759351ab285fc8cfb71c.jpg" alt="游戏推荐">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">《艾尔登法环》</h3>
+                        <p class="card-description">宫崎英高与乔治·R·R·马丁联手打造的开放世界动作RPG，探索广阔的奇幻世界，挑战强大的敌人。</p>
+                        <div class="card-meta">
+                            <div class="stats">
+                                <span><i class="fas fa-star"></i> 9.5</span>
+                                <span><i class="fas fa-tag"></i> 动作RPG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://autoglm-agent.aminer.cn/transfer/dc9a31318c9546800bcbec186de4f4d9c300a68faf9a759351ab285fc8cfb71c.jpg" alt="游戏推荐">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">《博德之门3》</h3>
+                        <p class="card-description">基于D&D规则的深度RPG游戏，拥有丰富的剧情选择和角色发展，带来沉浸式的游戏体验。</p>
+                        <div class="card-meta">
+                            <div class="stats">
+                                <span><i class="fas fa-star"></i> 9.7</span>
+                                <span><i class="fas fa-tag"></i> 角色扮演</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://autoglm-agent.aminer.cn/transfer/dc9a31318c9546800bcbec186de4f4d9c300a68faf9a759351ab285fc8cfb71c.jpg" alt="游戏推荐">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">《塞尔达传说：王国之泪》</h3>
+                        <p class="card-description">任天堂Switch平台独占大作，延续《旷野之息》的开放世界冒险，带来全新的创造和探索体验。</p>
+                        <div class="card-meta">
+                            <div class="stats">
+                                <span><i class="fas fa-star"></i> 9.8</span>
+                                <span><i class="fas fa-tag"></i> 冒险解谜</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://autoglm-agent.aminer.cn/transfer/dc9a31318c9546800bcbec186de4f4d9c300a68faf9a759351ab285fc8cfb71c.jpg" alt="游戏推荐">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">《星空》</h3>
+                        <p class="card-description">Bethesda打造的太空探索RPG，玩家可以在浩瀚的宇宙中探索超过1000个星球，创造自己的太空传奇。</p>
+                        <div class="card-meta">
+                            <div class="stats">
+                                <span><i class="fas fa-star"></i> 8.2</span>
+                                <span><i class="fas fa-tag"></i> 科幻RPG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Profile Section -->
+        <section id="profile">
+            <div class="user-profile-section">
+                <div class="profile-header">
+                    <img src="https://autoglm-agent.aminer.cn/transfer/6cbf1b5caff7f4a5f2e72bc537e4dcbce51d2fc099d596c72e6c5ed1ef9b69a6.jpg" alt="用户头像" class="profile-avatar">
+                    <div class="profile-info">
+                        <h2>玩家小明</h2>
+                        <p><i class="fas fa-map-marker-alt"></i> 中国 · 上海</p>
+                        <p><i class="fas fa-calendar-alt"></i> 加入时间：2023年1月15日</p>
+                        <p><i class="fas fa-quote-left"></i> 热爱游戏，热爱生活，让我们一起探索游戏世界的无限可能！</p>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">128</div>
+                                <div class="stat-label">发帖数</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">1.2k</div>
+                                <div class="stat-label">获赞数</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">356</div>
+                                <div class="stat-label">关注者</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">89</div>
+                                <div class="stat-label">关注中</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-tabs">
+                    <div class="profile-tab active" data-tab="posts">我的帖子</div>
+                    <div class="profile-tab" data-tab="replies">我的回复</div>
+                    <div class="profile-tab" data-tab="favorites">我的收藏</div>
+                    <div class="profile-tab" data-tab="settings">个人设置</div>
+                </div>
+                <div class="tab-content active" id="posts">
+                    <div class="grid">
+                        <div class="card">
+                            <div class="card-content">
+                                <h3 class="card-title">《赛博朋克2077》DLC评测：往日之影</h3>
+                                <p class="card-description">经过多次更新和修复，《赛博朋克2077》终于推出了备受期待的DLC"往日之影"。这个DLC是否值得购买？让我们一起来评测一下...</p>
+                                <div class="card-meta">
+                                    <div class="stats">
+                                        <span><i class="fas fa-eye"></i> 5.2k</span>
+                                        <span><i class="fas fa-comment"></i> 312</span>
+                                        <span><i class="fas fa-heart"></i> 256</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h3 class="card-title">新手入门指南：如何在《艾尔登法环》中快速成长</h3>
+                                <p class="card-description">《艾尔登法环》作为一款高难度的动作RPG，对新手玩家来说可能有些挑战。本文将为大家提供一些实用的入门技巧，帮助你在交界地快速成长...</p>
+                                <div class="card-meta">
+                                    <div class="stats">
+                                        <span><i class="fas fa-eye"></i> 3.8k</span>
+                                        <span><i class="fas fa-comment"></i> 186</span>
+                                        <span><i class="fas fa-heart"></i> 142</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="replies">
+                    <div class="grid">
+                        <div class="card">
+                            <div class="card-content">
+                                <h3 class="card-title">回复：2024年最值得期待的5款游戏</h3>
+                                <p class="card-description">我觉得《黑神话：悟空》也应该在榜单上，这款游戏从公布以来就备受期待，而且是中国游戏的一大突破...</p>
+                                <div class="card-meta">
+                                    <div class="stats">
+                                        <span><i class="fas fa-eye"></i> 1.2k</span>
+                                        <span><i class="fas fa-comment"></i> 42</span>
+                                        <span><i class="fas fa-heart"></i> 86</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h3 class="card-title">回复：《博德之门3》获得年度游戏大奖，实至名归？</h3>
+                                <p class="card-description">完全同意！《博德之门3》在剧情、角色塑造和游戏机制方面都做得非常出色，特别是玩家的选择能够真正影响游戏走向...</p>
+                                <div class="card-meta">
+                                    <div class="stats">
+                                        <span><i class="fas fa-eye"></i> 980</span>
+                                        <span><i class="fas fa-comment"></i> 36</span>
+                                        <span><i class="fas fa-heart"></i> 72</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="favorites">
+                    <div class="grid">
+                        <div class="card">
+                            <div class="card-content">
+                                <h3 class="card-title">《艾尔登法环》全Boss攻略</h3>
+                                <p class="card-description">详细介绍了《艾尔登法环》中所有Boss的打法技巧和注意事项，帮助你轻松击败各种强大敌人...</p>
+                                <div class="card-meta">
+                                    <div class="stats">
+                                        <span><i class="fas fa-eye"></i> 12.5k</span>
+                                        <span><i class="fas fa-comment"></i> 526</span>
+                                        <span><i class="fas fa-heart"></i> 892</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h3 class="card-title">《博德之门3》最佳职业搭配指南</h3>
+                                <p class="card-description">分析了《博德之门3》中各种职业的特点和优势，提供了最佳的职业搭配方案，让你的队伍更加强大...</p>
+                                <div class="card-meta">
+                                    <div class="stats">
+                                        <span><i class="fas fa-eye"></i> 8.7k</span>
+                                        <span><i class="fas fa-comment"></i> 312</span>
+                                        <span><i class="fas fa-heart"></i> 654</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="settings">
+                    <div class="post-form">
+                        <h3 class="section-title">个人设置</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="username">用户名</label>
+                                <input type="text" id="username" class="form-control" value="玩家小明">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">电子邮箱</label>
+                                <input type="email" id="email" class="form-control" value="player@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="bio">个人简介</label>
+                                <textarea id="bio" class="form-control">热爱游戏，热爱生活，让我们一起探索游戏世界的无限可能！</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">所在地</label>
+                                <input type="text" id="location" class="form-control" value="中国 · 上海">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">保存设置</button>
+                                <button type="reset" class="btn btn-secondary">重置</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Post Form Section -->
+        <section>
+            <div class="post-form">
+                <h3 class="section-title">发布新帖</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="post-title">标题</label>
+                        <input type="text" id="post-title" class="form-control" placeholder="请输入帖子标题">
+                    </div>
+                    <div class="form-group">
+                        <label for="post-category">分类</label>
+                        <select id="post-category" class="form-control">
+                            <option value="">请选择分类</option>
+                            <option value="hot">热门讨论</option>
+                            <option value="action">动作游戏</option>
+                            <option value="strategy">策略游戏</option>
+                            <option value="multiplayer">多人在线</option>
+                            <option value="mobile">手机游戏</option>
+                            <option value="vr">VR游戏</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-content">内容</label>
+                        <textarea id="post-content" class="form-control" placeholder="请输入帖子内容"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">发布帖子</button>
+                        <button type="reset" class="btn btn-secondary">清空内容</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>关于我们</h3>
+                    <p>QN交流社区是一个专注于游戏交流的平台，致力于为游戏爱好者提供最好的交流体验。</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="微信"><i class="fab fa-weixin"></i></a>
+                        <a href="#" aria-label="微博"><i class="fab fa-weibo"></i></a>
+                        <a href="#" aria-label="QQ"><i class="fab fa-qq"></i></a>
+                        <a href="#" aria-label="哔哩哔哩"><i class="fab fa-bilibili"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#forum">社区论坛</a></li>
+                        <li><a href="#games">游戏推荐</a></li>
+                        <li><a href="#events">热门活动</a></li>
+                        <li><a href="#profile">个人中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>游戏分类</h3>
+                    <ul>
+                        <li><a href="#">动作游戏</a></li>
+                        <li><a href="#">策略游戏</a></li>
+                        <li><a href="#">角色扮演</a></li>
+                        <li><a href="#">多人在线</a></li>
+                        <li><a href="#">手机游戏</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contact@qncommunity.com</li>
+                        <li><i class="fas fa-phone"></i> 400-123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 中国上海市浦东新区</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>作者: AutoGLM (网页内容由AI生成) Copyright © 2025 AutoGLM. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top" id="backToTop" aria-label="返回顶部">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- 通知提示 -->
+    <div class="notification" id="notification"></div>
+
+    <script>
+        // 页面加载完成后隐藏加载动画
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 500);
+        });
+
+        // 移动端菜单切换
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            
+            // 切换图标
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // 点击导航链接后关闭移动端菜单
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    mainNav.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Tab切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.profile-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // 移除所有标签和内容的active类
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // 为点击的标签和对应内容添加active类
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // 平滑滚动到锚点
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // 表单提交处理
+            const forms = document.querySelectorAll('form');
+            const notification = document.getElementById('notification');
+            
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // 显示通知
+                    notification.textContent = '操作成功！';
+                    notification.classList.add('show');
+                    
+                    // 3秒后隐藏通知
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                    }, 3000);
+                    
+                    // 重置表单
+                    this.reset();
+                });
+            });
+
+            // 搜索功能
+            const searchInput = document.querySelector('.search-box input');
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const searchTerm = this.value.trim();
+                    if (searchTerm) {
+                        // 显示通知
+                        notification.textContent = `正在搜索 "${searchTerm}"...`;
+                        notification.classList.add('show');
+                        
+                        // 3秒后隐藏通知
+                        setTimeout(() => {
+                            notification.classList.remove('show');
+                        }, 3000);
+                        
+                        // 清空搜索框
+                        this.value = '';
+                    }
+                }
+            });
+
+            // 返回顶部按钮
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // 添加滚动时的导航栏效果
+            let lastScrollTop = 0;
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // 向下滚动 - 隐藏导航栏
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // 向上滚动 - 显示导航栏
+                    header.style.transform = 'translateY(0)';
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+
+            // 添加卡片悬停效果
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // 添加图片懒加载
+            if ('IntersectionObserver' in window) {
+                const imgOptions = {
+                    threshold: 0,
+                    rootMargin: '0px 0px 50px 0px'
+                };
+
+                const imgObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imgObserver.unobserve(img);
+                        }
+                    });
+                }, imgOptions);
+
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    imgObserver.observe(img);
+                });
+            } else {
+                // 回退到简单的延迟加载
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    img.src = img.dataset.src;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
