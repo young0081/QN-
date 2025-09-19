@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="QN交流社区 - 游戏爱好者的综合交流平台，提供游戏讨论、攻略分享、新闻资讯等内容">
+    <meta name="keywords" content="QN社区,游戏交流,游戏讨论,游戏攻略,游戏新闻">
+    <meta name="author" content="QN社区">
     <title>QN交流社区 - 游戏交流平台</title>
-    <link rel="stylesheet" href="https://autoglm-api.zhipuai.cn/ppt-proxy/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             /* 颜色系统 */
@@ -40,7 +43,7 @@
             --transition-slow: 0.5s ease;
             
             /* 布局系统 */
-            --container-max-width: 1200px;
+            --container-max-width: 1400px;
             --header-height: 70px;
             --mobile-header-height: 60px;
             --border-radius: 10px;
@@ -57,24 +60,24 @@
             --spacing-2xl: 4rem;
             --spacing-3xl: 6rem;
             
-        /* 字体系统 */
-        --font-size-xs: 0.75rem;
-        --font-size-sm: 0.875rem;
-        --font-size: 1rem;
-        --font-size-md: 1.125rem;
-        --font-size-lg: 1.25rem;
-        --font-size-xl: 1.5rem;
-        --font-size-2xl: 1.875rem;
-        --font-size-3xl: 2.25rem;
-        --font-size-4xl: 3rem;
-        
-        /* 字体权重系统 */
-        --font-weight-light: 300;
-        --font-weight-normal: 400;
-        --font-weight-medium: 500;
-        --font-weight-semibold: 600;
-        --font-weight-bold: 700;
-        --font-weight-extrabold: 800;
+            /* 字体系统 */
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size: 1rem;
+            --font-size-md: 1.125rem;
+            --font-size-lg: 1.25rem;
+            --font-size-xl: 1.5rem;
+            --font-size-2xl: 1.875rem;
+            --font-size-3xl: 2.25rem;
+            --font-size-4xl: 3rem;
+            
+            /* 字体权重系统 */
+            --font-weight-light: 300;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --font-weight-extrabold: 800;
             
             /* 行高系统 */
             --line-height-tight: 1.25;
@@ -82,6 +85,36 @@
             --line-height-normal: 1.5;
             --line-height-relaxed: 1.625;
             --line-height-loose: 2;
+            
+            /* 字间距系统 */
+            --letter-spacing-tight: -0.025em;
+            --letter-spacing-normal: normal;
+            --letter-spacing-wide: 0.05em;
+            --letter-spacing-wider: 0.1em;
+            
+            /* 段落间距 */
+            --paragraph-spacing: 1rem;
+            
+            /* 标题层级 */
+            --h1-font-size: var(--font-size-4xl);
+            --h1-line-height: var(--line-height-tight);
+            --h1-font-weight: var(--font-weight-extrabold);
+            --h1-letter-spacing: var(--letter-spacing-tight);
+            
+            --h2-font-size: var(--font-size-2xl);
+            --h2-line-height: var(--line-height-tight);
+            --h2-font-weight: var(--font-weight-bold);
+            --h2-letter-spacing: var(--letter-spacing-tight);
+            
+            --h3-font-size: var(--font-size-xl);
+            --h3-line-height: var(--line-height-snug);
+            --h3-font-weight: var(--font-weight-semibold);
+            --h3-letter-spacing: var(--letter-spacing-tight);
+            
+            --h4-font-size: var(--font-size-lg);
+            --h4-line-height: var(--line-height-normal);
+            --h4-font-weight: var(--font-weight-semibold);
+            --h4-letter-spacing: var(--letter-spacing-normal);
             
             /* 背景叠加 */
             --bg-overlay: rgba(15, 23, 42, 0.85);
@@ -101,6 +134,7 @@
         }
 
         body {
+            
             font-family: 'Inter', 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
             color: var(--text-color);
             line-height: var(--line-height-normal);
@@ -113,6 +147,101 @@
             overflow-x: hidden;
             width: 100%;
             max-width: 100vw;
+            padding-top: var(--header-height); /* 为导航栏留出空间 */
+        }
+        
+        /* 通用文本排版样式 */
+        h1, h2, h3, h4 {
+            font-family: inherit;
+            font-weight: var(--font-weight-bold);
+            line-height: var(--line-height-tight);
+            color: var(--text-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        h1 {
+            font-size: var(--h1-font-size);
+            font-weight: var(--h1-font-weight);
+            line-height: var(--h1-line-height);
+            letter-spacing: var(--h1-letter-spacing);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        h2 {
+            font-size: var(--h2-font-size);
+            font-weight: var(--h2-font-weight);
+            line-height: var(--h2-line-height);
+            letter-spacing: var(--h2-letter-spacing);
+            margin-bottom: var(--spacing-md);
+            margin-top: var(--spacing-2xl);
+        }
+        
+        h3 {
+            font-size: var(--h3-font-size);
+            font-weight: var(--h3-font-weight);
+            line-height: var(--h3-line-height);
+            letter-spacing: var(--h3-letter-spacing);
+            margin-bottom: var(--spacing);
+            margin-top: var(--spacing-xl);
+        }
+        
+        h4 {
+            font-size: var(--h4-font-size);
+            font-weight: var(--h4-font-weight);
+            line-height: var(--h4-line-height);
+            letter-spacing: var(--h4-letter-spacing);
+            margin-bottom: var(--spacing);
+            margin-top: var(--spacing-lg);
+        }
+        
+        p {
+            margin-bottom: var(--paragraph-spacing);
+            line-height: var(--line-height-relaxed);
+        }
+        
+        /* 为正文添加首行缩进 */
+        .content p:not(:first-child) {
+            text-indent: 2em;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        /* 列表样式 */
+        ul, ol {
+            margin-bottom: var(--paragraph-spacing);
+            padding-left: var(--spacing-2xl);
+        }
+        
+        li {
+            margin-bottom: var(--spacing-xs);
+            line-height: var(--line-height-relaxed);
+        }
+        
+        ul li {
+            list-style-type: disc;
+        }
+        
+        ol li {
+            list-style-type: decimal;
+        }
+        
+        /* 引用样式 */
+        blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: var(--spacing-md);
+            margin-left: 0;
+            margin-bottom: var(--paragraph-spacing);
+            font-style: italic;
+            color: var(--text-light);
         }
 
         /* 背景图片样式 */
@@ -179,14 +308,30 @@
             color: var(--white);
             height: var(--header-height);
             box-shadow: var(--shadow);
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
-            transition: all var(--transition-normal) ease;
             backdrop-filter: blur(10px);
             width: 100%;
             max-width: 100vw;
             overflow: hidden;
+            /* 修复定位问题，确保导航栏始终固定在顶部 */
+            transform: none !important;
+            will-change: unset;
+            transition: none;
+        }
+
+        /* 锚点滚动偏移，避免被固定头部遮挡 */
+        :where(section[id], .hero[id], main[id], h1[id], h2[id], .user-profile-section[id], .hero-content[id]) {
+            scroll-margin-top: var(--header-height);
+        }
+
+        @media (max-width: 768px) {
+            :where(section[id], .hero[id], main[id], h1[id], h2[id], .user-profile-section[id], .hero-content[id]) {
+                scroll-margin-top: var(--mobile-header-height);
+            }
         }
 
         .header-container {
@@ -204,16 +349,11 @@
             font-weight: 700;
             display: flex;
             align-items: center;
-            transition: transform var(--transition-normal) ease;
             letter-spacing: -0.025em;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             max-width: 200px;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
         }
 
         .logo i {
@@ -231,6 +371,17 @@
             display: flex;
             align-items: center;
             flex-shrink: 0;
+            /* 确保导航菜单始终可见 */
+            transform: none !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            position: static;
+            background-color: transparent;
+            box-shadow: none;
+            padding: 0;
+            max-width: none;
+            overflow: visible;
+            max-height: none;
         }
 
         nav ul {
@@ -258,12 +409,14 @@
             max-width: 120px;
             overflow: hidden;
             text-overflow: ellipsis;
+            line-height: 1.6;
+            vertical-align: middle;
         }
 
         nav ul li a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: 2px;
             left: 50%;
             width: 0;
             height: 2px;
@@ -494,26 +647,153 @@
             color: var(--white);
         }
 
+        /* 定义左右滑动动画 */
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         .hero-image {
             flex: 1;
             max-width: 500px;
             text-align: center;
-            animation: fadeIn 1s ease 0.8s;
+            animation: slideInLeft 1s ease 0.8s;
             animation-fill-mode: both;
-            overflow: hidden;
+            overflow: visible; /* 允许内容完整显示 */
+            position: relative;
+            transition: transform var(--transition-slow) ease;
+            padding: 20px 0 50px 0; /* 增加底部内边距，为导航留出空间 */
+            min-height: 400px; /* 增加最小高度，确保有足够空间显示所有内容 */
+            margin: 0 auto; /* 水平居中 */
         }
 
-        .hero-image img {
+        /* 多页图片容器 */
+        .image-slider-container {
+            position: relative;
+            width: 100%;
+            /* 使用响应式高度而非固定高度 */
+            height: 0;
+            padding-bottom: 120%; /* 增加高度比例到120%，确保图片完全可见 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        /* 图片页面样式 */
+        .image-slide {
+            position: absolute;
+            opacity: 0;
+            top: 50%;
+            left: 50%;
+            transform: scale(0.8) translate(-50%, -50%);
+            transition: all 0.8s ease;
+            pointer-events: none;
+            z-index: 1;
+            width: 100%;
             max-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px; /* 添加内边距防止图片紧贴边缘 */
+            box-sizing: border-box; /* 确保内边距不会增加元素总尺寸 */
+        }
+
+        /* 当前激活页面样式 */
+        .image-slide.active {
+            opacity: 1;
+            transform: scale(1) translate(-50%, -50%);
+            pointer-events: auto;
+            z-index: 3;
+        }
+
+        /* 前一页样式 - 保持在容器内且居中 */
+        .image-slide.prev {
+            opacity: 0.5;
+            transform: scale(0.7) translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        /* 后一页样式 - 保持在容器内且居中 */
+        .image-slide.next {
+            opacity: 0.5;
+            transform: scale(0.7) translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .image-slide img {
+            max-width: 100%;
+            max-height: 100%;
             height: auto;
+            width: auto;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-lg);
-            transition: transform var(--transition-normal) ease;
-            object-fit: cover;
+            object-fit: contain;
+            transition: all 0.5s ease;
+            display: block; /* 确保图片正确显示 */
+            margin: 0 auto; /* 水平居中图片 */
+            backface-visibility: hidden; /* 优化渲染 */
         }
 
-        .hero-image img:hover {
-            transform: scale(1.03);
+        /* 页面导航控制 */
+        .slider-nav {
+            position: absolute;
+            bottom: 10px; /* 调整底部位置，确保在容器内 */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 4;
+        }
+
+        /* 导航按钮 */
+        .nav-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            z-index: 5;
+        }
+
+        .nav-btn:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        /* 指示器圆点 */
+        .dot-indicators {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--primary-color);
         }
 
         /* Section Styles */
@@ -524,14 +804,13 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             backdrop-filter: blur(5px);
-            transition: transform var(--transition-normal) ease, box-shadow var(--transition-normal) ease;
             width: 100%;
             max-width: 100%;
             overflow: hidden;
         }
 
+        /* 保留section的悬停效果但移除transform，避免与导航栏交互冲突 */
         section:hover {
-            transform: translateY(-2px);
             box-shadow: var(--shadow-md);
         }
 
@@ -540,7 +819,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: var(--spacing-lg);
-            padding-bottom: var(--spacing-md);
+            padding: 0 var(--spacing-2xl) var(--spacing-md);
             border-bottom: 2px solid var(--neutral-dark);
             width: 100%;
             max-width: 100%;
@@ -671,7 +950,8 @@
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
-            letter-spacing: -0.01em;
+            letter-spacing: var(--letter-spacing-tight);
+            text-rendering: optimizeLegibility;
         }
 
         .card:hover .card-title {
@@ -689,6 +969,8 @@
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             font-size: var(--font-size-sm);
+            letter-spacing: var(--letter-spacing-normal);
+            text-rendering: optimizeLegibility;
         }
 
         .card-meta {
@@ -751,6 +1033,7 @@
             gap: var(--spacing-lg);
             width: 100%;
             max-width: 100%;
+            padding: 0 var(--spacing-2xl);
         }
 
         .grid-2 {
@@ -759,6 +1042,7 @@
             gap: var(--spacing-lg);
             width: 100%;
             max-width: 100%;
+            padding: 0 var(--spacing-2xl);
         }
 
         /* Forum Categories */
@@ -768,6 +1052,7 @@
             gap: var(--spacing-md);
             width: 100%;
             max-width: 100%;
+            padding: 0 var(--spacing-2xl);
         }
 
         .category-card {
@@ -820,11 +1105,13 @@
 
         .category-title {
             font-size: var(--font-size-md);
-            font-weight: 600;
+            font-weight: var(--font-weight-semibold);
             margin-bottom: var(--spacing-xs);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            letter-spacing: var(--letter-spacing-tight);
+            text-rendering: optimizeLegibility;
         }
 
         .category-description {
@@ -835,6 +1122,9 @@
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
+            letter-spacing: var(--letter-spacing-normal);
+            line-height: var(--line-height-relaxed);
+            text-rendering: optimizeLegibility;
         }
 
         /* User Profile Section */
@@ -885,6 +1175,8 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            letter-spacing: var(--letter-spacing-tight);
+            text-rendering: optimizeLegibility;
         }
 
         .profile-info p {
@@ -893,6 +1185,8 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            letter-spacing: var(--letter-spacing-normal);
+            text-rendering: optimizeLegibility;
         }
 
         .profile-info p i {
@@ -922,13 +1216,17 @@
 
         .stat-value {
             font-size: var(--font-size-xl);
-            font-weight: 700;
+            font-weight: var(--font-weight-bold);
             color: var(--primary-color);
+            letter-spacing: var(--letter-spacing-tight);
+            text-rendering: optimizeLegibility;
         }
 
         .stat-label {
             font-size: var(--font-size-sm);
             color: var(--text-lightest);
+            letter-spacing: var(--letter-spacing-normal);
+            text-rendering: optimizeLegibility;
         }
 
         .profile-tabs {
@@ -994,10 +1292,12 @@
         .form-group label {
             display: block;
             margin-bottom: var(--spacing-xs);
-            font-weight: 500;
+            font-weight: var(--font-weight-medium);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            letter-spacing: var(--letter-spacing-tight);
+            text-rendering: optimizeLegibility;
         }
 
         .form-control {
@@ -1011,6 +1311,8 @@
             max-width: 100%;
             box-sizing: border-box;
             background-color: var(--white);
+            letter-spacing: var(--letter-spacing-normal);
+            text-rendering: optimizeLegibility;
         }
 
         .form-control:focus {
@@ -1068,6 +1370,8 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            letter-spacing: var(--letter-spacing-tight);
+            text-rendering: optimizeLegibility;
         }
 
         .footer-column h3::after {
@@ -1086,6 +1390,9 @@
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
+            line-height: var(--line-height-relaxed);
+            letter-spacing: var(--letter-spacing-normal);
+            text-rendering: optimizeLegibility;
         }
 
         .footer-column ul {
@@ -1234,6 +1541,14 @@
         .notification.show {
             transform: translateX(0);
         }
+        
+        .notification.success {
+            background-color: #10b981;
+        }
+        
+        .notification.error {
+            background-color: #ef4444;
+        }
 
         /* 返回顶部按钮 */
         .back-to-top {
@@ -1265,7 +1580,15 @@
             transform: translateY(-5px);
         }
 
-        /* 响应式设计 */
+        /* 响应式设计 - 统一断点结构 */
+        /* 超大屏幕 */
+        @media (max-width: 1400px) {
+            .container {
+                max-width: 1200px;
+            }
+        }
+        
+        /* 大屏幕 */
         @media (max-width: 1200px) {
             .container {
                 max-width: 960px;
@@ -1275,10 +1598,12 @@
                 font-size: var(--font-size-2xl);
             }
         }
-
+        
+        /* 平板设备 */
         @media (max-width: 992px) {
             .container {
                 max-width: 720px;
+                padding: 0 var(--spacing-md);
             }
             
             .hero-content {
@@ -1304,6 +1629,19 @@
                 max-width: 100%;
             }
             
+            .image-slider-container {
+                padding-bottom: 65%; /* 调整宽高比以适应平板设备 */
+            }
+            
+            /* 平板设备上减少前后页面的偏移 */
+            .image-slide.prev {
+                transform: scale(0.65) translateX(-10%) translateY(10%);
+            }
+            
+            .image-slide.next {
+                transform: scale(0.65) translateX(10%) translateY(10%);
+            }
+            
             .grid, .grid-2 {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
                 gap: var(--spacing-md);
@@ -1311,6 +1649,63 @@
             
             .forum-categories {
                 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+        }
+        
+        /* 小平板/大屏幕手机 */
+        @media (max-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+            
+            .container {
+                max-width: 540px;
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .image-slider-container {
+                padding-bottom: 60%; /* 调整宽高比以适应手机设备 */
+            }
+            
+            /* 手机设备上简化显示，只突出当前页面 */
+            .image-slide.prev,
+            .image-slide.next {
+                /* 在小屏幕上只显示当前页面，隐藏前后页面 */
+                opacity: 0;
+                transform: scale(0.5) translateY(30px);
+                z-index: 0;
+            }
+            
+            /* 调整导航按钮大小 */
+            .nav-btn {
+                width: 35px;
+                height: 35px;
+            }
+            
+            /* 调整指示器大小 */
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+        }
+        
+        /* 手机设备 */
+        @media (max-width: 576px) {
+            html {
+                font-size: 14px;
+            }
+            
+            .container {
+                padding: 0 var(--spacing-xs);
+            }
+            
+            .image-slider-container {
+                padding-bottom: 55%; /* 适应更小的手机屏幕 */
+            }
+            
+            .hero-image {
+                min-height: 300px;
+                padding: 10px 0 40px 0;
             }
         }
 
@@ -1639,11 +2034,11 @@
             </button>
             <nav id="mainNav">
                 <ul>
-                    <li><a href="#home">首页</a></li>
-                    <li><a href="#forum">社区论坛</a></li>
-                    <li><a href="#games">游戏推荐</a></li>
-                    <li><a href="#events">热门活动</a></li>
-                    <li><a href="#profile">个人中心</a></li>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">社区论坛</a></li>
+                    <li><a href="#">游戏推荐</a></li>
+                    <li><a href="#">热门活动</a></li>
+                    <li><a href="#">个人中心</a></li>
                 </ul>
             </nav>
             <div class="user-actions">
@@ -1662,9 +2057,9 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content" id="home-content">
                 <div class="hero-text">
-                    <h1>欢迎来到QN交流社区</h1>
+                    <h1 id="home-title">欢迎来到QN交流社区</h1>
                     <p>探索游戏世界，分享游戏体验，结识志同道合的游戏伙伴。在这里，你可以找到最新的游戏资讯，参与热门讨论，展示你的游戏技巧。</p>
                     <div>
                         <a href="#forum" class="btn btn-primary">加入社区</a>
@@ -1672,7 +2067,33 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://autoglm-agent.aminer.cn/transfer/da7b0c711575ec2240d1167dde071e62830861fc734d50b607a65c7f40a2c252.jpg" alt="游戏社区">
+                    <!-- 多页图片容器 -->
+                    <div class="image-slider-container">
+                        <div class="image-slide active" data-index="0">
+                            <img src="001.png" alt="游戏社区">
+                        </div>
+                        <div class="image-slide" data-index="1">
+                            <img src="001.png" alt="游戏社区第二页">
+                        </div>
+                        <div class="image-slide" data-index="2">
+                            <img src="001.png" alt="游戏社区第三页">
+                        </div>
+                    </div>
+                    
+                    <!-- 页面导航控制 -->
+                    <div class="slider-nav">
+                        <button class="nav-btn prev-btn" aria-label="上一页">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="dot-indicators">
+                            <button class="dot active" data-index="0"></button>
+                            <button class="dot" data-index="1"></button>
+                            <button class="dot" data-index="2"></button>
+                        </div>
+                        <button class="nav-btn next-btn" aria-label="下一页">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1750,7 +2171,7 @@
         <!-- Forum Categories Section -->
         <section id="forum">
             <div class="section-header">
-                <h2 class="section-title">社区论坛</h2>
+                <h2 class="section-title" id="forum-title">社区论坛</h2>
                 <a href="#" class="section-link">进入论坛 <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="forum-categories">
@@ -1860,7 +2281,7 @@
         <!-- Game Recommendations Section -->
         <section id="games">
             <div class="section-header">
-                <h2 class="section-title">游戏推荐</h2>
+                <h2 class="section-title" id="games-title">游戏推荐</h2>
                 <a href="#" class="section-link">查看更多 <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="grid-2">
@@ -1927,9 +2348,64 @@
             </div>
         </section>
 
+        <!-- Events Section -->
+        <section id="events">
+            <div class="section-header">
+                <h2 class="section-title" id="events-title">热门活动</h2>
+                <a href="#" class="section-link">查看全部 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://autoglm-agent.aminer.cn/transfer/7280328414c74b547a26310137488fe0c056e40bde4cd44cd185cbf074b63369.jpg" alt="电竞赛事">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">2024年度电竞赛事</h3>
+                        <p class="card-description">年度电竞赛事火热进行中，顶级战队激烈角逐，精彩赛事不容错过！</p>
+                        <div class="card-meta">
+                            <div class="stats">
+                                <span><i class="fas fa-calendar-alt"></i> 2024-06-15 至 2024-07-30</span>
+                                <span><i class="fas fa-map-marker-alt"></i> 线上+线下</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://autoglm-agent.aminer.cn/transfer/7280328414c74b547a26310137488fe0c056e40bde4cd44cd185cbf074b63369.jpg" alt="游戏发布会">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">夏季游戏发布会</h3>
+                        <p class="card-description">各大游戏厂商将在发布会上展示最新游戏作品，带来精彩内容！</p>
+                        <div class="card-meta">
+                            <div class="stats">
+                                <span><i class="fas fa-calendar-alt"></i> 2024-08-10</span>
+                                <span><i class="fas fa-map-marker-alt"></i> 上海新国际博览中心</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://autoglm-agent.aminer.cn/transfer/7280328414c74b547a26310137488fe0c056e40bde4cd44cd185cbf074b63369.jpg" alt="社区活动">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">社区嘉年华</h3>
+                        <p class="card-description">QN社区一年一度的嘉年华活动，与其他玩家一起线下交流，参与各种有趣的游戏活动！</p>
+                        <div class="card-meta">
+                            <div class="stats">
+                                <span><i class="fas fa-calendar-alt"></i> 2024-09-20 至 2024-09-22</span>
+                                <span><i class="fas fa-map-marker-alt"></i> 北京国家会议中心</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- User Profile Section -->
         <section id="profile">
-            <div class="user-profile-section">
+            <div class="user-profile-section" id="user-profile-div">
                 <div class="profile-header">
                     <img src="https://autoglm-agent.aminer.cn/transfer/6cbf1b5caff7f4a5f2e72bc537e4dcbce51d2fc099d596c72e6c5ed1ef9b69a6.jpg" alt="用户头像" class="profile-avatar">
                     <div class="profile-info">
@@ -2213,8 +2689,9 @@
             });
         });
 
-        // Tab切换功能
+        // DOM内容加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
+            // Tab切换功能
             const tabs = document.querySelectorAll('.profile-tab');
             const tabContents = document.querySelectorAll('.tab-content');
 
@@ -2253,22 +2730,71 @@
                 });
             });
 
-            // 表单提交处理
+            // 优化表单提交处理
             const forms = document.querySelectorAll('form');
             const notification = document.getElementById('notification');
+            
+            function showNotification(message, isError = false) {
+                notification.textContent = message;
+                notification.className = 'notification'; // 重置类
+                notification.classList.add('show');
+                
+                if (isError) {
+                    notification.classList.add('error');
+                } else {
+                    notification.classList.add('success');
+                }
+                
+                // 3秒后隐藏通知
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    notification.classList.remove('error');
+                    notification.classList.remove('success');
+                }, 3000);
+            }
+            
+            function validateForm(form) {
+                const requiredFields = form.querySelectorAll('[required], .form-control[placeholder]');
+                
+                for (let field of requiredFields) {
+                    if (!field.value.trim()) {
+                        // 如果是select元素，检查是否选择了有效的选项
+                        if (field.tagName === 'SELECT' && field.selectedIndex <= 0) {
+                            return field.labels[0] ? field.labels[0].textContent + ' 是必填项' : '请填写所有必填项';
+                        }
+                        // 对于其他元素，检查是否有值
+                        return field.labels[0] ? field.labels[0].textContent + ' 是必填项' : '请填写所有必填项';
+                    }
+                    
+                    // 邮箱验证
+                    if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+                        return '请输入有效的电子邮箱地址';
+                    }
+                }
+                
+                return null; // 验证通过
+            }
             
             forms.forEach(form => {
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    // 显示通知
-                    notification.textContent = '操作成功！';
-                    notification.classList.add('show');
+                    // 验证表单
+                    const validationError = validateForm(this);
                     
-                    // 3秒后隐藏通知
-                    setTimeout(() => {
-                        notification.classList.remove('show');
-                    }, 3000);
+                    if (validationError) {
+                        showNotification(validationError, true);
+                        return;
+                    }
+                    
+                    // 如果是搜索表单
+                    if (this.querySelector('.search-box')) {
+                        const searchTerm = this.querySelector('input').value.trim();
+                        showNotification('正在搜索 "' + searchTerm + '"...');
+                    } else {
+                        // 其他表单显示成功信息
+                        showNotification('操作成功！');
+                    }
                     
                     // 重置表单
                     this.reset();
@@ -2282,7 +2808,7 @@
                     const searchTerm = this.value.trim();
                     if (searchTerm) {
                         // 显示通知
-                        notification.textContent = `正在搜索 "${searchTerm}"...`;
+                        notification.textContent = '正在搜索 "' + searchTerm + '"...';
                         notification.classList.add('show');
                         
                         // 3秒后隐藏通知
@@ -2314,63 +2840,206 @@
                 });
             });
 
-            // 添加滚动时的导航栏效果
-            let lastScrollTop = 0;
+            // 移除导航栏滚动隐藏效果，保持导航栏始终显示
+            // 这样可以防止下方板块因为导航栏的显示/隐藏而产生抖动
             const header = document.querySelector('header');
-            
-            window.addEventListener('scroll', function() {
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (scrollTop > lastScrollTop && scrollTop > 100) {
-                    // 向下滚动 - 隐藏导航栏
-                    header.style.transform = 'translateY(-100%)';
-                } else {
-                    // 向上滚动 - 显示导航栏
-                    header.style.transform = 'translateY(0)';
-                }
-                
-                lastScrollTop = scrollTop;
-            });
+            header.style.transform = 'translateY(0)'; // 确保导航栏始终显示
 
-            // 添加卡片悬停效果
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                });
+            // 优化卡片悬停效果
+            function initCardHoverEffects() {
+                // 检测是否为触摸设备
+                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
                 
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-
-            // 添加图片懒加载
-            if ('IntersectionObserver' in window) {
-                const imgOptions = {
-                    threshold: 0,
-                    rootMargin: '0px 0px 50px 0px'
-                };
-
-                const imgObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            img.src = img.dataset.src;
-                            img.classList.remove('lazy');
-                            imgObserver.unobserve(img);
-                        }
+                // 非触摸设备才添加悬停效果
+                if (!isTouchDevice) {
+                    const cards = document.querySelectorAll('.card');
+                    cards.forEach(card => {
+                        card.addEventListener('mouseenter', function() {
+                            this.style.transition = 'transform 0.3s ease';
+                            this.style.transform = 'translateY(-5px)';
+                        });
+                        
+                        card.addEventListener('mouseleave', function() {
+                            this.style.transition = 'transform 0.3s ease';
+                            this.style.transform = 'translateY(0)';
+                        });
                     });
-                }, imgOptions);
+                }
+            }
+            
+            // 初始化卡片悬停效果
+            initCardHoverEffects();
 
-                document.querySelectorAll('img[data-src]').forEach(img => {
-                    imgObserver.observe(img);
+            // 图片懒加载逻辑
+            function initLazyLoading() {
+                if ('IntersectionObserver' in window) {
+                    const imgOptions = {
+                        threshold: 0,
+                        rootMargin: '0px 0px 50px 0px'
+                    };
+
+                    const imgObserver = new IntersectionObserver(function(entries, observer) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting) {
+                                const img = entry.target;
+                                if (img && img.dataset && img.dataset.src) {
+                                    img.src = img.dataset.src;
+                                    img.classList.remove('lazy');
+                                    imgObserver.unobserve(img);
+                                }
+                            }
+                        });
+                    }, imgOptions);
+
+                    document.querySelectorAll('img[data-src]').forEach(function(img) {
+                        imgObserver.observe(img);
+                    });
+                } else {
+                    // 回退到带有延迟的加载方式，以减轻性能压力
+                    setTimeout(function() {
+                        document.querySelectorAll('img[data-src]').forEach(function(img) {
+                            if (img && img.dataset && img.dataset.src) {
+                                img.src = img.dataset.src;
+                            }
+                        });
+                    }, 500);
+                }
+            }
+
+            // 初始化图片懒加载
+            initLazyLoading();
+        });
+
+        // 图片轮播多页显示功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有轮播相关元素
+            const slides = document.querySelectorAll('.image-slide');
+            const dots = document.querySelectorAll('.dot');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            
+            // 配置项
+            const slideInterval = 5000; // 自动翻页时间间隔（毫秒）
+            let currentSlide = 0;
+            let slideTimer;
+            
+            // 确保获取到了所有必要的元素
+            if (!slides.length || !dots.length || !prevBtn || !nextBtn) {
+                console.error('无法找到轮播所需的元素');
+                return;
+            }
+            
+            // 更新幻灯片显示状态
+            function updateSlides() {
+                slides.forEach((slide, index) => {
+                    // 重置所有幻灯片样式
+                    slide.classList.remove('active', 'prev', 'next');
+                    // 移除内联样式，确保CSS类能够正确应用
+                    slide.style.opacity = '';
+                    slide.style.transform = '';
+                    slide.style.zIndex = '';
+                    slide.style.pointerEvents = '';
+                    
+                    if (index === currentSlide) {
+                        // 当前页
+                        slide.classList.add('active');
+                    } else if (index === getPrevIndex(currentSlide)) {
+                        // 前一页（左侧下方）
+                        slide.classList.add('prev');
+                    } else if (index === getNextIndex(currentSlide)) {
+                        // 后一页（右侧下方）
+                        slide.classList.add('next');
+                    } else {
+                        // 其他页隐藏
+                        slide.style.opacity = '0';
+                        slide.style.transform = 'scale(0.7) translateY(60px)';
+                        slide.style.zIndex = '1';
+                        slide.style.pointerEvents = 'none';
+                    }
                 });
-            } else {
-                // 回退到简单的延迟加载
-                document.querySelectorAll('img[data-src]').forEach(img => {
-                    img.src = img.dataset.src;
+                
+                // 更新指示器状态
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
                 });
             }
+            
+            // 获取上一页索引
+            function getPrevIndex(index) {
+                return (index - 1 + slides.length) % slides.length;
+            }
+            
+            // 获取下一页索引
+            function getNextIndex(index) {
+                return (index + 1) % slides.length;
+            }
+            
+            // 切换到指定页面
+            function goToSlide(index) {
+                currentSlide = index;
+                updateSlides();
+                resetTimer();
+            }
+            
+            // 切换到上一页
+            function goToPrevSlide() {
+                currentSlide = getPrevIndex(currentSlide);
+                updateSlides();
+                resetTimer();
+            }
+            
+            // 切换到下一页
+            function goToNextSlide() {
+                currentSlide = getNextIndex(currentSlide);
+                updateSlides();
+                resetTimer();
+            }
+            
+            // 重置自动翻页计时器
+            function resetTimer() {
+                clearInterval(slideTimer);
+                slideTimer = setInterval(goToNextSlide, slideInterval);
+            }
+            
+            // 添加事件监听器 - 添加事件委托，防止事件丢失
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    goToPrevSlide();
+                });
+                nextBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    goToNextSlide();
+                });
+            }
+            
+            // 为指示器添加点击事件
+            if (dots.length) {
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        goToSlide(index);
+                    });
+                });
+            }
+            
+            // 添加键盘控制支持
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') {
+                    goToPrevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    goToNextSlide();
+                }
+            });
+            
+            // 初始化显示并启动自动翻页
+            updateSlides();
+            resetTimer();
+            
+            // 清理函数 - 在页面卸载时清理计时器
+            window.addEventListener('unload', function() {
+                clearInterval(slideTimer);
+            });
         });
     </script>
 </body>
